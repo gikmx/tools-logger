@@ -10,60 +10,15 @@
 
 ### Table of Contents
 
--   [hasDebugBeenEnabled](#hasdebugbeenenabled)
 -   [logger](#logger)
--   [LoggerParamTypeError](#loggerparamtypeerror)
--   [LoggerInstance](#loggerinstance)
--   [Thrower](#thrower)
--   [config](#config)
--   [pino](#pino)
--   [pino](#pino-1)
-
-## hasDebugBeenEnabled
-
-Captures all calls to [debug](https://github.com/visionmedia/debug) to improve their
-performance and avoid having to pass the DEBUG environment variable.
-NOTE: In order for this to work, this lib should be loaded before any other modules.
+-   [\_\_types](#__types)
+    -   [LoggerParamTypeError](#loggerparamtypeerror)
+    -   [LoggerInstance](#loggerinstance)
 
 ## logger
 
-A wrapper around [pino](http://getpino.io)
-
-## LoggerParamTypeError
-
-Thrown when a non-object configuration is sent to the logger.
-
-Type: [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
-
-## LoggerInstance
-
--   **See: {Object} [Pino](http://getpino.io)**
-
-An instance of the logger
-
-## Thrower
-
--   Throws **[LoggerParamTypeError](#loggerparamtypeerror)** 
-
-## config
-
--   **See: <http://getpino.io/#/docs/API?id=constructor> for additional properties.**
-
-**Properties**
-
--   `config` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** The default configuration applied for every environment.
-    -   `config.name` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** The name for the returned logger instance.
-                  By default, it will first try to determine the current process' package
-                  name, if that fails, then it will use the current process' dirname.
-    -   `config.level` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** The level of debugging that should be used
-                  supported levels are:
-                 `silent`, `fatal`, `error`, `warn`, `info`, `debug`, `trace`. <br>
-                  NOTE: using trace would enable all `debug` messages sent by the modules.
--   `safe` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** Avoid errors caused by circular-references.
-
-## pino
-
-Behaves differently accordint to the environment.
+A wrapper around [pino](http://getpino.io) that behaves differently according to
+currently set environment:
 
 -   When the environment is _non-production_ it will output prettier logs.
 
@@ -77,6 +32,38 @@ Behaves differently accordint to the environment.
     adding an even faster approach to logging. (make sure to read the documentation
     about the caveats)
 
-## pino
+-   In all environments captures all calls to [debug](https://github.com/visionmedia/debug)
+    to improve their performance and avoid having to pass the DEBUG environment variable.
+    _NOTE:_ In order for this to work, this lib should be loaded before any other modules.
 
-Returns **[LoggerInstance](#loggerinstance)** 
+**Parameters**
+
+-   `config` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** The default configuration applied for every environment.
+           [additional params](http://getpino.io/#/docs/API?id=constructor)
+    -   `config.name` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** The name for the returned logger instance.
+               By default, it will first try to determine the current process' package
+               name, if that fails, then it will use the current process' dirname.
+    -   `config.level` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The level of debugging that should be used
+               supported levels are:
+               `silent`, `fatal`, `error`, `warn`, `info`, `debug`, `trace`. <br>
+               NOTE: using trace would enable all `debug` messages sent by the modules. (optional, default `info`)
+-   `safe` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Avoid errors caused by circular-references. (optional, default `true`)
+
+
+-   Throws **LoggerParamTypeError** 
+
+Returns **LoggerInstance** 
+
+## \_\_types
+
+### LoggerParamTypeError
+
+Thrown when a non-object configuration is sent to the logger.
+
+Type: [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+
+### LoggerInstance
+
+-   **See: [Pino](http://getpino.io)**
+
+An instance of the logger

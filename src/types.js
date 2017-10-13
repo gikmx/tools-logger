@@ -1,3 +1,7 @@
+/**
+ * @namespace __types
+ * @memberof Tools
+ */
 
 /**
  * Thrown when a non-object configuration is sent to the logger.
@@ -13,7 +17,7 @@ export const LoggerParamTypeError = {
  * An instance of the logger
  * @typedef LoggerInstance
  * @memberof Tools.__types
- * @see {Object} [Pino](http://getpino.io)
+ * @see [Pino](http://getpino.io)
  */
 export const LoggerInstance = {};
 

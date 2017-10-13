@@ -13,50 +13,53 @@ import { LoggerParamTypeError as TypeErr } from './types';
 let hasDebugBeenEnabled = false;
 
 /**
- * A wrapper around [pino](http://getpino.io)
  * @module logger
  * @memberof Tools
+ *
+ * @description
+ * A wrapper around [pino](http://getpino.io) that behaves differently according to
+ * currently set environment:
+ *
+ * - When the environment is *non-production* it will output prettier logs.
+ *
+ * - All calls to `error` will use
+ *   [@gik/tools-thrower](http://githib.com/gikmx/tools-thrower)
+ *   halting the execution when the environment is *non-production* (ie: development)
+ *   however, when in production, it will fallback to Pino's default logger.
+ *
+ * - When the environment is set as *production* it will load
+ *   [extreme-mode](http://getpino.io/#/docs/extreme)
+ *   adding an even faster approach to logging. (make sure to read the documentation
+ *   about the caveats)
+ *
+ * - In all environments captures all calls to [debug](https://github.com/visionmedia/debug)
+ *   to improve their performance and avoid having to pass the DEBUG environment variable.
+ *   *NOTE:* In order for this to work, this lib should be loaded before any other modules.
+ *
+ * @param {Object} config - The default configuration applied for every environment.
+ *        [additional params](http://getpino.io/#/docs/API?id=constructor)
+ * @param {string} [config.name] - The name for the returned logger instance.
+ *        By default, it will first try to determine the current process' package
+ *        name, if that fails, then it will use the current process' dirname.
+ * @param {string} [config.level=info] - The level of debugging that should be used
+ *        supported levels are:
+ *        `silent`, `fatal`, `error`, `warn`, `info`, `debug`, `trace`. <br>
+ *        NOTE: using trace would enable all `debug` messages sent by the modules.
+ * @param {boolean} [safe=true] Avoid errors caused by circular-references.
+ *
+ * @returns {LoggerInstance}
+ * @throws {LoggerParamTypeError}
  */
 export default function Logger(cfg = {}) {
 
-    /**
-     * @throws {LoggerParamTypeError}
-     */
     if (!Is.object(cfg))
         throw Thrower(`${TypeErr.message}, got '${typeof cfg}'`, TypeErr.name);
 
-    /**
-     * @property {Object} config - The default configuration applied for every environment.
-     * @property {string} [config.name] - The name for the returned logger instance.
-     *           By default, it will first try to determine the current process' package
-     *           name, if that fails, then it will use the current process' dirname.
-     * @property {string} [config.level=info] - The level of debugging that should be used
-     *           supported levels are:
-     *          `silent`, `fatal`, `error`, `warn`, `info`, `debug`, `trace`. <br>
-     *           NOTE: using trace would enable all `debug` messages sent by the modules.
-     * @property {boolean} [safe=true] Avoid errors caused by circular-references.
-     *
-     * @see {@link http://getpino.io/#/docs/API?id=constructor} for additional properties.
-     */
     const config = Object.assign({
         safe: true,
         name: process.env.npm_package_name || PATH.basename(process.cwd()),
     }, cfg);
 
-    /**
-     * Behaves differently accordint to the environment.
-     * - When the environment is *non-production* it will output prettier logs.
-     *
-     * - All calls to `error` will use
-     *   [@gik/tools-thrower](http://githib.com/gikmx/tools-thrower)
-     *   halting the execution when the environment is *non-production* (ie: development)
-     *   however, when in production, it will fallback to Pino's default logger.
-     *
-     * - When the environment is set as *production* it will load
-     *   [extreme-mode](http://getpino.io/#/docs/extreme)
-     *   adding an even faster approach to logging. (make sure to read the documentation
-     *   about the caveats)
-     */
     let pino;
     if (process.env.NODE_ENV === 'production')
         pino = Pino(Object.assign({ extreme: true }, config));
@@ -66,11 +69,6 @@ export default function Logger(cfg = {}) {
         pino = Pino(config, pretty);
     }
 
-    /**
-    * Captures all calls to [debug](https://github.com/visionmedia/debug) to improve their
-    * performance and avoid having to pass the DEBUG environment variable.
-    * NOTE: In order for this to work, this lib should be loaded before any other modules.
-    */
     if (!hasDebugBeenEnabled) {
         PinoDebug(pino, { auto: true, map: { '*': 'trace' } });
         hasDebugBeenEnabled = true;
@@ -83,8 +81,5 @@ export default function Logger(cfg = {}) {
         throw Thrower(msgOrErr, errName || 'Error');
     };
 
-    /**
-     * @returns {LoggerInstance}
-     */
     return pino;
 }
