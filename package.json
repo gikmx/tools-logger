@@ -1,6 +1,6 @@
 {
     "name": "@gik/tools-logger",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "GIK's recipe for logging.",
     "license": "MIT",
     "homepage": "https://github.com/gikmx/tools",
@@ -43,7 +43,12 @@
         "precommit": "npm run verify -s && npm run ver:commit -s && npm run docs -s",
         "prepublishOnly": "npm run docs -s"
     },
-    "dependencies": {},
+    "dependencies": {
+        "@gik/tools-checker": "0.0.7",
+        "@gik/tools-thrower": "^0.1.7",
+        "pino": "^4.7.2",
+        "pino-debug": "^1.0.5"
+    },
     "devDependencies": {
         "@gik/eslint-config": "0.0.3",
         "@gik/npm": "0.0.28",
