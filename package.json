@@ -1,6 +1,6 @@
 {
     "name": "@gik/tools-logger",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "GIK's recipe for logging.",
     "license": "MIT",
     "homepage": "https://github.com/gikmx/tools",

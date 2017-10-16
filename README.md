@@ -1,4 +1,4 @@
-# [@gik/tools-logger](https://github.com/gikmx/tools) *0.0.2*
+# [@gik/tools-logger](https://github.com/gikmx/tools) *0.0.3*
 > GIK's recipe for logging.
 
 ## Contributors
@@ -45,8 +45,10 @@ currently set environment:
                name, if that fails, then it will use the current process' dirname.
     -   `config.level` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The level of debugging that should be used
                supported levels are:
-               `silent`, `fatal`, `error`, `warn`, `info`, `debug`, `trace`. <br>
-               NOTE: using trace would enable all `debug` messages sent by the modules. (optional, default `info`)
+               `silent`, `fatal`, `error`, `warn`, `info`, `debug`, `trace`.       you can also set the level using the LEVEL environment variable.
+               `~$ LEVEL=info node /path/to/your/file.js`.
+
+               **NOTE**: using trace would enable all `debug` messages sent by the modules. (optional, default `info`)
 -   `safe` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Avoid errors caused by circular-references. (optional, default `true`)
 
 

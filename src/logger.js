@@ -43,8 +43,13 @@ let hasDebugBeenEnabled = false;
  *        name, if that fails, then it will use the current process' dirname.
  * @param {string} [config.level=info] - The level of debugging that should be used
  *        supported levels are:
- *        `silent`, `fatal`, `error`, `warn`, `info`, `debug`, `trace`. <br>
- *        NOTE: using trace would enable all `debug` messages sent by the modules.
+ *        `silent`, `fatal`, `error`, `warn`, `info`, `debug`, `trace`.
+ *
+ *        you can also set the level using the LEVEL environment variable.
+ *        `~$ LEVEL=info node /path/to/your/file.js`.
+ *
+ *        **NOTE**: using trace would enable all `debug` messages sent by the modules.
+ *
  * @param {boolean} [safe=true] Avoid errors caused by circular-references.
  *
  * @returns {LoggerInstance}
@@ -57,6 +62,7 @@ export default function Logger(cfg = {}) {
 
     const config = Object.assign({
         safe: true,
+        level: process.env.LEVEL || 'info',
         name: process.env.npm_package_name || PATH.basename(process.cwd()),
     }, cfg);
 
