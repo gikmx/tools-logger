@@ -1,7 +1,7 @@
 /**
  * Thrown when a non-object configuration is sent to the logger.
  * @typedef {Error}
- * @memberof Tools.__types
+ * @memberof Types
  */
 export const LoggerParamTypeError = {
     message: 'Invalid parameter «%s», Expecting {%s}, got "%s"',
@@ -9,17 +9,12 @@ export const LoggerParamTypeError = {
 };
 
 /**
- * An instance of the logger
- * @typedef LoggerInstance
- * @memberof Tools.__types
- * @see [Pino](http://getpino.io)
+ * An instance of the logger (see [Pino](http://getpino.io))
+ * @typedef {Object}
+ * @memberof Types
  */
 export const LoggerInstance = {};
 
-/**
- * @module __types
- * @memberof Tools
- */
 export default {
     ParamTypeError: LoggerParamTypeError,
     Instance: LoggerInstance,
