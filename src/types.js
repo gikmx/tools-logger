@@ -1,15 +1,10 @@
 /**
- * @namespace __types
- * @memberof Tools
- */
-
-/**
  * Thrown when a non-object configuration is sent to the logger.
- * @typedef {Error} LoggerParamTypeError
+ * @typedef {Error}
  * @memberof Tools.__types
  */
 export const LoggerParamTypeError = {
-    message: 'Invalid configuration, expecting {Object}',
+    message: 'Invalid parameter «%s», Expecting {%s}, got "%s"',
     name: 'LoggerParamTypeError',
 };
 
@@ -21,6 +16,10 @@ export const LoggerParamTypeError = {
  */
 export const LoggerInstance = {};
 
+/**
+ * @module __types
+ * @memberof Tools
+ */
 export default {
     ParamTypeError: LoggerParamTypeError,
     Instance: LoggerInstance,

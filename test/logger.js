@@ -8,7 +8,7 @@ Test('should throw if sent non-object for config', (test) => {
     test.plan(2);
     const errCheck = err =>
         err.name === ParamErr.name &&
-        err.message.indexOf(ParamErr.message) === 0;
+        err.message.match(/Invalid parameter «config»/) !== null;
 
     test.notThrows(() => Logger(), errCheck);
     test.throws(() => Logger(true), errCheck);

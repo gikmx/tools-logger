@@ -1,8 +1,8 @@
-# [@gik/tools-logger](https://github.com/gikmx/tools) *0.0.3*
+# [@gik/tools-logger](https://github.com/gikmx/tools) *0.0.4*
 > GIK's recipe for logging.
 
 ## Contributors
-* [Héctor Menéndez](mailto:hector@gik.mx) [hectormenendez.com](hectormenendez.com)
+* [Héctor Menéndez](mailto:hector@gik.mx) [http://hectormenendez.com](http://hectormenendez.com)
 
 # Usage
 

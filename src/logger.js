@@ -58,7 +58,7 @@ let hasDebugBeenEnabled = false;
 export default function Logger(cfg = {}) {
 
     if (!Is.object(cfg))
-        throw Thrower(`${TypeErr.message}, got '${typeof cfg}'`, TypeErr.name);
+        Thrower([TypeErr.message, 'config', 'Object', typeof cfg], TypeErr.name);
 
     const config = Object.assign({
         safe: true,

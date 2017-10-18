@@ -1,11 +1,11 @@
 {
     "name": "@gik/tools-logger",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "GIK's recipe for logging.",
     "license": "MIT",
     "homepage": "https://github.com/gikmx/tools",
     "contributors": [
-        "Héctor Menéndez <hector@gik.mx> (hectormenendez.com)"
+        "Héctor Menéndez <hector@gik.mx> (http://hectormenendez.com)"
     ],
     "keywords": [
         "logger",
@@ -19,7 +19,8 @@
         "url": "https://github.com/gikmx/tools/issues"
     },
     "engines": {
-        "node": ">=6.11.3"
+        "node": ">=6.11.3",
+        "npm": ">=5.4.2"
     },
     "main": "lib/logger.js",
     "directories": {
@@ -44,14 +45,14 @@
         "prepublishOnly": "npm run docs -s"
     },
     "dependencies": {
-        "@gik/tools-checker": "0.0.7",
-        "@gik/tools-thrower": "^0.1.7",
+        "@gik/tools-checker": "0.0.8",
+        "@gik/tools-thrower": "^0.1.9",
         "pino": "^4.7.2",
         "pino-debug": "^1.0.5"
     },
     "devDependencies": {
         "@gik/eslint-config": "0.0.3",
-        "@gik/npm": "0.0.28",
+        "@gik/npm": "0.0.29",
         "nodemon": "^1.12.1"
     }
 }
