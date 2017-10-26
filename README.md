@@ -1,4 +1,4 @@
-# [@gik/tools-logger](https://github.com/gikmx/tools) *0.0.4*
+# [@gik/tools-logger](https://github.com/gikmx/tools) *0.0.5*
 > GIK's recipe for logging.
 
 ## Contributors
@@ -11,9 +11,8 @@
 ### Table of Contents
 
 -   [logger](#logger)
--   [\_\_types](#__types)
-    -   [LoggerParamTypeError](#loggerparamtypeerror)
-    -   [LoggerInstance](#loggerinstance)
+-   [LoggerParamTypeError](#loggerparamtypeerror)
+-   [LoggerInstance](#loggerinstance)
 
 ## logger
 
@@ -52,20 +51,18 @@ currently set environment:
 -   `safe` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Avoid errors caused by circular-references. (optional, default `true`)
 
 
--   Throws **LoggerParamTypeError** 
+-   Throws **[LoggerParamTypeError](#loggerparamtypeerror)** 
 
-Returns **LoggerInstance** 
+Returns **[LoggerInstance](#loggerinstance)** 
 
-## \_\_types
-
-### LoggerParamTypeError
+## LoggerParamTypeError
 
 Thrown when a non-object configuration is sent to the logger.
 
 Type: [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
 
-### LoggerInstance
+## LoggerInstance
 
--   **See: [Pino](http://getpino.io)**
+An instance of the logger (see [Pino](http://getpino.io))
 
-An instance of the logger
+Type: [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
