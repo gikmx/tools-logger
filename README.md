@@ -1,4 +1,4 @@
-# [@gik/tools-logger](https://github.com/gikmx/tools) *0.0.5*
+# [@gik/tools-logger](https://github.com/gikmx/tools) *0.0.6*
 > A wrapper around Pino, with a GIK twist.
 
 ##### Contributors
@@ -19,20 +19,16 @@ A wrapper around [pino](http://getpino.io).
 
 ###### Behaviour
 - When the environment is *non-production* it will output prettier logs.
+
 - All calls to `error` will use
   [@gik/tools-thrower](http://githib.com/gikmx/tools-thrower)
   halting the execution when the environment is *non-production* (ie: development)
   however, when in production, it will fallback to Pino's default logger.
+
 - When the environment is set as *production* it will load
   [extreme-mode](http://getpino.io/#/docs/extreme)
   adding an even faster approach to logging. (make sure to read the documentation
   about the caveats)
-- In all environments captures all calls to [debug](https://github.com/visionmedia/debug)
-  to improve their performance and avoid having to pass the `DEBUG` environment variable.
-
-###### Notes
-- In order to wrap around `DEBUG` calls, you must load this before any other modules.
-- Using `trace` level will enable all `debug` messages sent by the modules.
 
 ###### Parameters
 <table>

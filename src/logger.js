@@ -1,16 +1,8 @@
 import PATH from 'path';
 import Pino from 'pino';
-import PinoDebug from 'pino-debug';
 import { Is } from '@gik/tools-checker';
 import Thrower from '@gik/tools-thrower';
 import { LoggerParamTypeError as TypeErr } from './types';
-
-/**
- * PinoDebug can only be called once, this keeps track when that's been done
- * in order to prevent a second call.
- * @private
- */
-let hasDebugBeenEnabled = false;
 
 /**
  * @module logger
@@ -18,20 +10,16 @@ let hasDebugBeenEnabled = false;
  *
  * ###### Behaviour
  * - When the environment is *non-production* it will output prettier logs.
+ *
  * - All calls to `error` will use
  *   [@gik/tools-thrower](http://githib.com/gikmx/tools-thrower)
  *   halting the execution when the environment is *non-production* (ie: development)
  *   however, when in production, it will fallback to Pino's default logger.
+ *
  * - When the environment is set as *production* it will load
  *   [extreme-mode](http://getpino.io/#/docs/extreme)
  *   adding an even faster approach to logging. (make sure to read the documentation
  *   about the caveats)
- * - In all environments captures all calls to [debug](https://github.com/visionmedia/debug)
- *   to improve their performance and avoid having to pass the `DEBUG` environment variable.
- *
- * ###### Notes
- * - In order to wrap around `DEBUG` calls, you must load this before any other modules.
- * - Using `trace` level will enable all `debug` messages sent by the modules.
  *
  * @param {Object} cfg - The default configuration applied for every environment.
  * [additional params](http://getpino.io/#/docs/API?id=constructor)
@@ -43,7 +31,6 @@ let hasDebugBeenEnabled = false;
  *
  * you can also set the level using the LEVEL environment variable.
  * `~$ LEVEL=info node /path/to/your/file.js`.
- *
  *
  * @returns {logger.Types.Instance} - A function that you can use for logging.
  * @throws {logger.Types.ParamTypeError} - When parameters are not valid.
@@ -66,11 +53,6 @@ export default function Logger(cfg = {}) {
         const pretty = Pino.pretty({ levelFirst: true, forceColor: true });
         pretty.pipe(process.stdout);
         pino = Pino(config, pretty);
-    }
-
-    if (config.level === 'trace' && !hasDebugBeenEnabled) {
-        PinoDebug(pino, { auto: true, map: { '*': 'trace' } });
-        hasDebugBeenEnabled = true;
     }
 
     const pinoError = pino.error.bind(pino);
