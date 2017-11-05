@@ -1,6 +1,6 @@
 {
     "name": "@gik/tools-logger",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "A wrapper around Pino, with a GIK twist.",
     "license": "MIT",
     "homepage": "https://github.com/gikmx/tools",
@@ -22,6 +22,10 @@
         "node": ">=6.11.3",
         "npm": ">=5.4.2"
     },
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "main": "lib/logger.js",
     "directories": {
         "test": "./__tests__",
@@ -29,24 +33,20 @@
         "out": "./lib"
     },
     "scripts": {
-        "docs": "gik-npm docs",
         "test": "gik-npm lint test && gik-npm test",
         "build": "gik-npm lint src && gik-npm build",
         "verify": "npm run build -s && npm run test -s",
         "start": "gik-npm start 'npm run verify'",
-        "pub:beta": "npm run verify -s && npm publish --access public --tag beta",
-        "pub:latest": "npm run verify -s && npm publish --access public --tag latest",
-        "precommit": "npm run verify -s && gik-npm version patch && npm run docs -s"
+        "pub": "npm run verify -s && npm publish --access public --tag",
+        "precommit": "npm run verify -s && gik-npm version patch && gik-npm docs"
     },
     "dependencies": {
-        "@gik/tools-checker": "0.0.8",
-        "@gik/tools-thrower": "^0.1.9",
-        "jsdoc-babel": "^0.3.0",
-        "pino": "^4.8.1",
-        "pino-debug": "^1.0.5"
+        "@gik/tools-checker": "0.0.9",
+        "@gik/tools-thrower": "^0.1.11",
+        "pino": "^4.9.0"
     },
     "devDependencies": {
         "@gik/eslint-config": "0.0.4",
-        "@gik/npm": "^0.1.3"
+        "@gik/npm": "^0.1.10"
     }
 }

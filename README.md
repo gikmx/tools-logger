@@ -1,10 +1,12 @@
-# [@gik/tools-logger](https://github.com/gikmx/tools) *0.0.6*
+# [@gik/tools-logger](https://github.com/gikmx/tools) *0.0.7*
 > A wrapper around Pino, with a GIK twist.
 
 ##### Contributors
 - [Héctor Menéndez](mailto:hector@gik.mx) []()
 
 ##### Supported platforms
+- darwin
+- linux
 
 #### <a name="table-of-contents"></a> Table of contents
 - **[logger](#logger)** A wrapper around [pino](http://getpino.io).
