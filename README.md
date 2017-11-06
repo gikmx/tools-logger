@@ -10,9 +10,8 @@
 
 #### <a name="table-of-contents"></a> Table of contents
 - **[logger](#logger)** A wrapper around [pino](http://getpino.io).
-  - **[Types](#logger.Types)**
-    - **[Instance](#logger.Types.Instance)** `typedef` An instance of the logger (see [Pino](http://getpino.io))
-    - **[ParamTypeError](#logger.Types.ParamTypeError)** `typedef` Thrown when invalid parameters are sent to the constructor.
+- **[Types](#Types)** ``
+  - **[ParamTypeError](#Types.ParamTypeError)** `typedef` Thrown when invalid parameters are sent to the constructor.
 
 
 # <a name="logger"></a> logger
@@ -69,95 +68,34 @@ supported levels are, check out <a href="#logger.Instance">logger.Instance</a> f
 
 
 ###### Returns
- [`logger.Types.Instance`](#logger.Types.Instance) <span style="font-weight:normal"> - A function that you can use for logging.</span>
+ [`Types.Instance`](#Types.Instance) <span style="font-weight:normal"> - A function that you can use for logging.</span>
 ###### Throws
-- `logger.Types.ParamTypeError` - When parameters are not valid.
+- `Types.ParamTypeError` - When parameters are not valid.
 
-###### Members
-
-- [Types](#logger.Types)
 
 <small>**[▲ Top](#table-of-contents)**</small>
 
 ---
 
-## <a name="logger.Types"></a> Types
+# <a name="Types"></a> Types
 
 ###### Members
 
-- [Instance](#logger.Types.Instance)
-- [ParamTypeError](#logger.Types.ParamTypeError)
+- [ParamTypeError](#Types.ParamTypeError)
 
-<small>**[▲ Top](#logger)**</small>
-
----
-
-### <a name="logger.Types.Instance"></a> Instance
-> static  typedef of [`logger.Types`](#logger.Types)
-
-
-An instance of the logger (see [Pino](http://getpino.io))
-
-###### Properties
-<table>
-    <tr>
-        <td style="white-space: nowrap;">
-            <code>error</code>
-        </td>
-        <td style="white-space: nowrap;">
-                <a href="#function">function</a>
-        </td>
-        <td>Throws an error on development, logs an error on production</td>
-    </tr><tr>
-        <td style="white-space: nowrap;">
-            <code>warn</code>
-        </td>
-        <td style="white-space: nowrap;">
-                <a href="#function">function</a>
-        </td>
-        <td>Logs a warning.</td>
-    </tr><tr>
-        <td style="white-space: nowrap;">
-            <code>info</code>
-        </td>
-        <td style="white-space: nowrap;">
-                <a href="#function">function</a>
-        </td>
-        <td>Logs information.</td>
-    </tr><tr>
-        <td style="white-space: nowrap;">
-            <code>debug</code>
-        </td>
-        <td style="white-space: nowrap;">
-                <a href="#function">function</a>
-        </td>
-        <td>Logs debug information.</td>
-    </tr><tr>
-        <td style="white-space: nowrap;">
-            <code>trace</code>
-        </td>
-        <td style="white-space: nowrap;">
-                <a href="#function">function</a>
-        </td>
-        <td>Logs all the information and shows packages&#39; logs.</td>
-    </tr>
-</table>
-
-
-
-<small>**[▲ Top](#logger.Types)**</small>
+<small>**[▲ Top](#table-of-contents)**</small>
 
 ---
 
-### <a name="logger.Types.ParamTypeError"></a> ParamTypeError
-> static  typedef of [`logger.Types`](#logger.Types)
+## <a name="Types.ParamTypeError"></a> ParamTypeError
+> static  typedef of [`Types`](#Types)
 
 
 Thrown when invalid parameters are sent to the constructor.
 
 
 
-<small>**[▲ Top](#logger.Types)**</small>
+<small>**[▲ Top](#Types)**</small>
 
 ---
 
