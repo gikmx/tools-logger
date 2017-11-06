@@ -1,6 +1,6 @@
 /**
- * @name Instance
- * @memberof logger.Types
+ * @name LoggerInstance
+ * @memberof Types
  * @typedef {Object}
  * @description An instance of the logger (see [Pino](http://getpino.io))
  * @property {function} error - Throws an error on development, logs an error on production
@@ -19,7 +19,7 @@ export const LoggerInstance = {
 
 /**
  * @name ParamTypeError
- * @memberof logger.Types
+ * @memberof Types
  * @typedef {Error}
  * @description Thrown when invalid parameters are sent to the constructor.
  */
@@ -28,10 +28,6 @@ export const LoggerParamTypeError = {
     name: 'LoggerParamTypeError',
 };
 
-/**
- * @namespace Types
- * @memberof logger
- */
 export default {
     ParamTypeError: LoggerParamTypeError,
     Instance: LoggerInstance,

@@ -32,8 +32,8 @@ import { LoggerParamTypeError as TypeErr } from './types';
  * you can also set the level using the LEVEL environment variable.
  * `~$ LEVEL=info node /path/to/your/file.js`.
  *
- * @returns {logger.Types.Instance} - A function that you can use for logging.
- * @throws {logger.Types.ParamTypeError} - When parameters are not valid.
+ * @returns {Types.Instance} - A function that you can use for logging.
+ * @throws {Types.ParamTypeError} - When parameters are not valid.
  */
 export default function Logger(cfg = {}) {
 
