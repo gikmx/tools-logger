@@ -1,9 +1,9 @@
 {
     "name": "@gik/tools-logger",
     "version": "0.0.7",
-    "description": "A wrapper around Pino, with a GIK twist.",
+    "description": "A wrapper around Pino logger, with some extra features. Part of our [tools suite](https://github.com/gikmx/tools).",
     "license": "MIT",
-    "homepage": "https://github.com/gikmx/tools",
+    "homepage": "http://gik.mx",
     "contributors": [
         "Héctor Menéndez <hector@gik.mx>"
     ],

@@ -7,6 +7,8 @@ import { LoggerParamTypeError as TypeErr } from './types';
 /**
  * @module logger
  * @description A wrapper around [pino](http://getpino.io).
+ * > - [Standalone version](https://github.com/gikmx/tools-logger).
+ * > - [Report a Bug](https://github.com/gikmx/tools-logger/issues).
  *
  * ###### Behaviour
  * - When the environment is *non-production* it will output prettier logs.

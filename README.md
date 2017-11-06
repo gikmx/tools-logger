@@ -1,5 +1,5 @@
-# [@gik/tools-logger](https://github.com/gikmx/tools) *0.0.7*
-> A wrapper around Pino, with a GIK twist.
+# [@gik/tools-logger](http://gik.mx) *0.0.7*
+> A wrapper around Pino logger, with some extra features. Part of our [tools suite](https://github.com/gikmx/tools).
 
 ##### Contributors
 - [Héctor Menéndez](mailto:hector@gik.mx) []()
@@ -17,6 +17,8 @@
 # <a name="logger"></a> logger
 
 A wrapper around [pino](http://getpino.io).
+> - [Standalone version](https://github.com/gikmx/tools-logger).
+> - [Report a Bug](https://github.com/gikmx/tools-logger/issues).
 
 ###### Behaviour
 - When the environment is *non-production* it will output prettier logs.
