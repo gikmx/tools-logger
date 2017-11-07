@@ -1,4 +1,4 @@
-# [@gik/tools-logger](http://gik.mx) *0.0.7*
+# [@gik/tools-logger](http://gik.mx) *0.0.8*
 > A wrapper around Pino logger, with some extra features. Part of our [tools suite](https://github.com/gikmx/tools).
 
 ##### Contributors

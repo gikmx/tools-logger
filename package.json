@@ -1,6 +1,6 @@
 {
     "name": "@gik/tools-logger",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "A wrapper around Pino logger, with some extra features. Part of our [tools suite](https://github.com/gikmx/tools).",
     "license": "MIT",
     "homepage": "http://gik.mx",
@@ -47,6 +47,6 @@
     },
     "devDependencies": {
         "@gik/eslint-config": "0.0.4",
-        "@gik/npm": "^0.1.10"
+        "@gik/npm": "^0.1.11"
     }
 }
