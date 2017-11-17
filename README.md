@@ -1,4 +1,4 @@
-# [@gik/tools-logger](http://gik.mx) *0.0.8*
+# [@gik/tools-logger](http://gik.mx) *0.0.9*
 > A wrapper around Pino logger, with some extra features. Part of our [tools suite](https://github.com/gikmx/tools).
 
 ##### Contributors
@@ -23,13 +23,13 @@ A wrapper around [pino](http://getpino.io).
 ###### Behaviour
 - When the environment is *non-production* it will output prettier logs.
 
-- All calls to `error` will use
+- Unless `cfg.nothrow` is set to true, All calls to `error` will use
   [@gik/tools-thrower](http://githib.com/gikmx/tools-thrower)
   halting the execution when the environment is *non-production* (ie: development)
-  however, when in production, it will fallback to Pino's default logger.
+  however, when in production it will always fallback to Pino's default logger.
 
-- When the environment is set as *production* it will load
-  [extreme-mode](http://getpino.io/#/docs/extreme)
+- When `cfg.extreme` is set to true and the environment is set as *production*
+  it will load [extreme-mode](http://getpino.io/#/docs/extreme)
   adding an even faster approach to logging. (make sure to read the documentation
   about the caveats)
 
@@ -62,9 +62,27 @@ name, if that fails, then it will use the current process&#39; dirname.</td>
                 <a href="#string">string</a>
         </td>
         <td>The level of debugging that should be used
-supported levels are, check out <a href="#logger.Instance">logger.Instance</a> for more info.</p>
+supported levels are, check out <a href="#logger.Instance">logger.Instance</a> for more info. <b>Default <code>info</code></b></td>
+    </tr><tr>
+        <td style="white-space: nowrap;">
+            <code>[cfg.nothrow]</code>
+        </td>
+        <td style="white-space: nowrap;">
+                <a href="#boolean">boolean</a>
+        </td>
+        <td>Whether <code>log.error</code> should always log
+instead of throwing in all environments.</td>
+    </tr><tr>
+        <td style="white-space: nowrap;">
+            <code>[cfg.extreme]</code>
+        </td>
+        <td style="white-space: nowrap;">
+                <a href="#boolean">boolean</a>
+        </td>
+        <td>Whether Pino should initialize Extreme mode
+when in production environment.</p>
 <p>you can also set the level using the LEVEL environment variable.
-<code>~$ LEVEL=info node /path/to/your/file.js</code>. <b>Default <code>info</code></b></td>
+<code>~$ LEVEL=info node /path/to/your/file.js</code>.</td>
     </tr>
 </table>
 
